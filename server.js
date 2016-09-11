@@ -23,7 +23,7 @@ app.use(express.static('public'));
 
 
 // Database configuration with mongoose
-mongoose.connect('mongodb://localhost/week18day3mongoose');
+mongoose.connect('mongodb://localhost/f1fanatic');
 var db = mongoose.connection;
 
 // show any mongoose errors
@@ -53,11 +53,11 @@ app.get('/', function(req, res) {
 // A GET request to scrape the echojs website.
 app.get('/scrape', function(req, res) {
 	// first, we grab the body of the html with request
-  request('http://www.echojs.com/', function(error, response, html) {
+  request('http://www.f1fanatic.co.uk/', function(error, response, html) {
   	// then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // now, we grab every h2 within an article tag, and do the following:
-    $('article h2').each(function(i, element) {
+    $('header h2').each(function(i, element) {
 
     		// save an empty result object
 				var result = {};
